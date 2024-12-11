@@ -4,134 +4,325 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autism Screening Tool</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../static/style.css" />
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        color: #333;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-      }
-
-      .container {
-        max-width: 700px;
-        margin: 50px auto;
-        padding: 20px;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      h1 {
-        color: #333;
-      }
-
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      label {
-        margin: 10px 0 5px;
-        text-align: left;
-        width: 100%;
-      }
-
-      input[type="number"] {
-        margin-bottom: 15px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 100%;
-      }
-
-      button {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #0056b3;
-      }
-
-      .error {
-        color: red;
-        margin-bottom: 15px;
-      }
-    </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Autism Screening Questionnaire</h1>
-      <p>
-        Please answer the following questions with 1 for "Yes" and 0 for "No":
-      </p>
-
-      <form action="/predict" method="post">
-        <label for="A1"
-          >1. Does your child make eye contact when talking or playing?</label
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">Autism Screening Tool</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
-        <input type="number" name="A1" min="0" max="1" required />
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/learn/negative">Learning Activities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-        <label for="A2"
-          >2. Does your child point to objects to show interest?</label
+    <!-- Main Content -->
+    <div class="container mt-5">
+      <div class="card shadow-lg p-4">
+        <h1 class="text-center mb-4 text-primary">
+          Autism Screening Questionnaire
+        </h1>
+        <p class="text-center">
+          Please answer the following questions with
+          <strong>1 for "Yes"</strong> and <strong>0 for "No"</strong>:
+        </p>
+
+        <form
+          action="/predict"
+          method="post"
+          class="needs-validation"
+          novalidate
         >
-        <input type="number" name="A2" min="0" max="1" required />
+          <!-- Question 1 -->
+          <div class="row mb-3">
+            <label for="A1" class="col-sm-8 col-form-label text-sm-start">
+              1. Does your child make eye contact when talking or playing?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A1"
+                name="A1"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A3">3. Does your child try to imitate what you do?</label>
-        <input type="number" name="A3" min="0" max="1" required />
+          <!-- Question 2 -->
+          <div class="row mb-3">
+            <label for="A2" class="col-sm-8 col-form-label text-sm-start">
+              2. Does your child point to objects to show interest?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A2"
+                name="A2"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A4"
-          >4. Does your child respond when you call their name?</label
-        >
-        <input type="number" name="A4" min="0" max="1" required />
+          <!-- Question 3 -->
+          <div class="row mb-3">
+            <label for="A3" class="col-sm-8 col-form-label text-sm-start">
+              3. Does your child try to imitate what you do?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A3"
+                name="A3"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A5"
-          >5. Does your child show interest in other children?</label
-        >
-        <input type="number" name="A5" min="0" max="1" required />
+          <!-- Question 4 -->
+          <div class="row mb-3">
+            <label for="A4" class="col-sm-8 col-form-label text-sm-start">
+              4. Does your child respond when you call their name?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A4"
+                name="A4"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A6"
-          >6. Does your child often repeat certain movements?</label
-        >
-        <input type="number" name="A6" min="0" max="1" required />
+          <!-- Question 5 -->
+          <div class="row mb-3">
+            <label for="A5" class="col-sm-8 col-form-label text-sm-start">
+              5. Does your child show interest in other children?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A5"
+                name="A5"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A7"
-          >7. Does your child play with toys in unusual ways?</label
-        >
-        <input type="number" name="A7" min="0" max="1" required />
+          <!-- Question 6 -->
+          <div class="row mb-3">
+            <label for="A6" class="col-sm-8 col-form-label text-sm-start">
+              6. Does your child often repeat certain movements?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A6"
+                name="A6"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A8"
-          >8. Does your child focus intensely on specific topics or
-          objects?</label
-        >
-        <input type="number" name="A8" min="0" max="1" required />
+          <!-- Question 7 -->
+          <div class="row mb-3">
+            <label for="A7" class="col-sm-8 col-form-label text-sm-start">
+              7. Does your child play with toys in unusual ways?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A7"
+                name="A7"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A9"
-          >9. Does your child have difficulty using language to
-          communicate?</label
-        >
-        <input type="number" name="A9" min="0" max="1" required />
+          <!-- Question 8 -->
+          <div class="row mb-3">
+            <label for="A8" class="col-sm-8 col-form-label text-sm-start">
+              8. Does your child focus intensely on specific topics or objects?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A8"
+                name="A8"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <label for="A10"
-          >10. Is your child unusually sensitive to certain sounds?</label
-        >
-        <input type="number" name="A10" min="0" max="1" required />
+          <!-- Question 9 -->
+          <div class="row mb-3">
+            <label for="A9" class="col-sm-8 col-form-label text-sm-start">
+              9. Does your child have difficulty using language to communicate?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A9"
+                name="A9"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-        <br />
-        <button type="submit">Check for Autism Traits</button>
-      </form>
+          <!-- Question 10 -->
+          <div class="row mb-3">
+            <label for="A10" class="col-sm-8 col-form-label text-sm-start">
+              10. Is your child unusually sensitive to certain sounds?
+            </label>
+            <div class="col-sm-4">
+              <input
+                type="number"
+                id="A10"
+                name="A10"
+                class="form-control"
+                min="0"
+                max="1"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter 0 for "No" or 1 for "Yes".
+              </div>
+            </div>
+          </div>
 
-      {% if prediction_text %}
-      <h2>Prediction Result: {{prediction_text}}</h2>
-      {% endif %}
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100">
+            Check for Autism Traits
+          </button>
+        </form>
+
+        <p class="text-center mt-3">
+          Explore
+          <a href="/learn/negative" class="text-decoration-none"
+            >learning activities</a
+          >
+          suitable for all children.
+        </p>
+
+        <!-- Prediction Result -->
+        {% if prediction_text %}
+        <div class="alert alert-info text-center mt-4">
+          <h4>Prediction Result: {{ prediction_text }}</h4>
+        </div>
+        {% endif %}
+      </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+      <p>&copy; 2024 Autism Learning Platform. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Form Validation Script -->
+    <script>
+      (function () {
+        "use strict";
+        var forms = document.querySelectorAll(".needs-validation");
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>

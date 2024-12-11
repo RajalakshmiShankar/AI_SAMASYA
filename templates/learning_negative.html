@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General Learning Path</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <style>
+      /* Global Styles */
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f8f9fa;
+        color: #212529;
+      }
+
+      h1 {
+        color: #198754; /* Success green color */
+      }
+
+      .navbar-brand {
+        font-weight: bold;
+      }
+
+      .card {
+        border-radius: 15px;
+        background-color: #ffffff;
+      }
+
+      .card h1 {
+        font-size: 2.5rem;
+        color: #198754;
+      }
+
+      ul.list-group li a {
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+      }
+
+      ul.list-group li a:hover {
+        transform: scale(1.05);
+      }
+
+      footer {
+        background-color: #343a40;
+        color: #ffffff;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      /* Buttons */
+      .btn-outline-primary {
+        color: #0d6efd;
+        border-color: #0d6efd;
+      }
+
+      .btn-outline-primary:hover {
+        background-color: #0d6efd;
+        color: #ffffff;
+      }
+
+      .btn-outline-success {
+        color: #198754;
+        border-color: #198754;
+      }
+
+      .btn-outline-success:hover {
+        background-color: #198754;
+        color: #ffffff;
+      }
+
+      .btn-outline-info {
+        color: #0dcaf0;
+        border-color: #0dcaf0;
+      }
+
+      .btn-outline-info:hover {
+        background-color: #0dcaf0;
+        color: #ffffff;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+      }
+    </style>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container">
+        <a class="navbar-brand" href="#">General Learning Path</a>
+      </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container mt-5">
+      <div class="card shadow-lg p-4">
+        <h1 class="text-center mb-4">General Learning Activities</h1>
+        <p class="text-center">
+          Here are some general learning activities for your child:
+        </p>
+
+        <ul class="list-group list-group-flush mb-3">
+          <li class="list-group-item">
+            <a href="/activity/motor" class="btn btn-outline-primary w-100"
+              >💪 Motor Skill Development</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a href="/activity/creative" class="btn btn-outline-success w-100"
+              >🎨 Creative Arts and Crafts</a
+            >
+          </li>
+          <li class="list-group-item">
+            <a href="/activity/math" class="btn btn-outline-info w-100"
+              >➕ Basic Math and Shapes</a
+            >
+          </li>
+        </ul>
+
+        <div class="text-center">
+          <a href="/" class="btn btn-secondary">⬅️ Go Back</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+      <p>&copy; 2024 Personalized Learning Platform. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

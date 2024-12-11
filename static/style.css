@@ -1,23 +1,43 @@
+/* General Styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
   color: #333;
   text-align: center;
   margin: 0;
   padding: 0;
+}
+/* Updated CSS for better alignment */
+.row .col-sm-8 {
+  text-align: left;
+}
+
+.row {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  height: calc(1.5em + 0.75rem + 2px); /* Consistent input size */
+}
+
+.invalid-feedback {
+  font-size: 0.875rem;
 }
 
 .container {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #333;
+  color: #007bff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 form {
@@ -28,30 +48,96 @@ form {
 
 label {
   margin: 10px 0 5px;
+  font-weight: bold;
+  color: #333;
+  width: 100%;
+  text-align: left;
 }
 
-input {
+input[type="number"] {
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 80%;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="number"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 20px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
 button:hover {
   background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+button:active {
+  background-color: #004494;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 .error {
   color: red;
   margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+input[type="number"]:invalid {
+  border-color: #dc3545;
+}
+
+input[type="number"]:invalid:focus {
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+/* Custom Footer */
+footer {
+  background-color: #343a40;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Form Validation */
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875rem;
+  display: none;
+}
+
+input:invalid ~ .invalid-feedback {
+  display: block;
 }
