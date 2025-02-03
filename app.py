@@ -43,7 +43,7 @@ def activity(activity_type):
     if activity_type == 'sensory':
         return "<h2>Sensory Integration Exercises</h2><p>Activities that involve touch, sound, and movement.</p>"
     elif activity_type == 'social':
-        return "<h2>Social Skills Training</h2><p>Role-playing games and interactive exercises.</p>"
+        return "<h2>Social Skills Training</h2><p>Role-playing Games and Interactive Exercises.</p>"
     elif activity_type == 'language':
         return "<h2>Language and Communication Games</h2><p>Interactive storytelling and vocabulary games.</p>"
     elif activity_type == 'motor':
@@ -51,7 +51,7 @@ def activity(activity_type):
     elif activity_type == 'creative':
         return "<h2>Creative Arts and Crafts</h2><p>Drawing, painting, and crafting activities.</p>"
     elif activity_type == 'math':
-        return "<h2>Basic Math and Shapes</h2><p>Simple math exercises and shape recognition.</p>"
+        return "<h2>Basic Math and Shapes</h2><p>Simple Math Exercises and Shape Recognition.</p>"
     else:
         return "<h2>Activity Not Found</h2>"
 
