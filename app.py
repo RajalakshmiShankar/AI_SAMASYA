@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load the trained model
+# Load the Trained Model
 model = joblib.load('autism_detector_model.pkl')
 
 @app.route('/')
@@ -21,7 +21,7 @@ def predict():
     prediction = model.predict(features)
     result = "Positive for Autism Traits" if prediction[0] == 1 else "Negative for Autism Traits"
     
-    # Redirect to appropriate learning path
+    # Redirect to Appropriate Learning Path
     if prediction[0] == 1:
         return redirect(url_for('learning_path', result='positive'))
     else:
